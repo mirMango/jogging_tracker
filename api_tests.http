@@ -1,0 +1,46 @@
+### Test Signup (Creare cont nou)
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+  "user": {
+    "email": "test@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+  }
+}
+
+### Test Signup 2 (Rezolvat formatul)
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+  "user": {
+    "email": "dudu@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+  }
+}
+
+### Test Signup 3 (Momentul Adevarului)
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+  "user": {
+    "email": "campion2@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+  }
+}
+
+### Test Login (Extragerea Token-ului)
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "user": {
+    "email": "campion2@example.com",
+    "password": "password123"
+  }
+}
