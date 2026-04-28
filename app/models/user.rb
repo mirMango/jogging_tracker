@@ -7,4 +7,6 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   enum :role, regular: 0, manager: 1, admin: 2
+
+  has_many :jog_entries, dependent: :destroy
 end

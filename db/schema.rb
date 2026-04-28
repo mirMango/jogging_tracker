@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_22_113134) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_27_143727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "jog_entries", force: :cascade do |t|
+    t.float "average_speed"
+    t.datetime "created_at", null: false
+    t.date "date"
+    t.float "distance"
+    t.integer "time"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_jog_entries_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,4 +39,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_22_113134) do
     t.index ["jti"], name: "index_users_on_jti"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "jog_entries", "users"
 end
