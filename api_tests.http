@@ -44,3 +44,35 @@ Content-Type: application/json
     "password": "password123"
   }
 }
+
+### Test Create Jog Entry
+POST http://localhost:3000/jog_entries
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxOWZiZWFlNy0wODJhLTQzMjYtODgwNS1iNjhjYmMzZDljZDYiLCJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3MzUzMzYxLCJleHAiOjE3Nzc0Mzk3NjF9.fHfLs0E999qu_htFxQ5WurLc9s7FB7f8BbszBBB0vhU
+
+{
+  "jog_entry": {
+    "date": "2026-04-27",
+    "distance": 7.5,
+    "time": 42
+  }
+}
+
+### Test Get All Jog Entries (Index)
+GET http://localhost:3000/jog_entries
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxOWZiZWFlNy0wODJhLTQzMjYtODgwNS1iNjhjYmMzZDljZDYiLCJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3MzUzMzYxLCJleHAiOjE3Nzc0Mzk3NjF9.fHfLs0E999qu_htFxQ5WurLc9s7FB7f8BbszBBB0vhU
+
+### Test Create Jog Entry (Securitate Stricta)
+POST http://localhost:3000/jog_entries
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxOWZiZWFlNy0wODJhLTQzMjYtODgwNS1iNjhjYmMzZDljZDYiLCJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3MzUzMzYxLCJleHAiOjE3Nzc0Mzk3NjF9.fHfLs0E999qu_htFxQ5WurLc9s7FB7f8BbszBBB0vhU
+Cookie: none
+
+{
+  "jog_entry": {
+    "date": "2026-04-28",
+    "distance": 6,
+    "time": 35
+  }
+}

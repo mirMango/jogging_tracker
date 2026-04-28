@@ -8,11 +8,11 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 
 # Autentificare bazata pe token (pentru API)
-gem 'devise'
-gem 'devise-jwt'
+gem "devise"
+gem "devise-jwt"
 
 # Autorizare (Roluri)
-gem 'pundit'
+gem "pundit"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
@@ -56,5 +56,5 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'rspec-rails'
+  gem "rspec-rails"
 end
