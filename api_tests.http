@@ -76,3 +76,32 @@ Cookie: none
     "time": 35
   }
 }
+
+### 1. Create a second user (The Intruder)
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+  "user": {
+    "email": "intruder@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+  }
+}
+
+### 2. Login as the Intruder (To get their token)
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "user": {
+    "email": "intruder@example.com",
+    "password": "password123"
+  }
+}
+
+### 3. Test Authorization: Intruder tries to delete your Jog Entry (ID: 5)
+DELETE http://localhost:3000/jog_entries/5
+Content-Type: application/json
+# Replace with the Intruder's token
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwM2I0NTFiNC0wNTE0LTRjZGQtYjA3OC00MDY5YTk5MDY2OWUiLCJzdWIiOiI1Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3NDU1Nzk3LCJleHAiOjE3Nzc1NDIxOTd9.DCq57tT_xuhF2w-x0KsJ0SySnLIiSqybsVQJQAO4saE
