@@ -105,3 +105,54 @@ DELETE http://localhost:3000/jog_entries/5
 Content-Type: application/json
 # Replace with the Intruder's token
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwM2I0NTFiNC0wNTE0LTRjZGQtYjA3OC00MDY5YTk5MDY2OWUiLCJzdWIiOiI1Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3NDU1Nzk3LCJleHAiOjE3Nzc1NDIxOTd9.DCq57tT_xuhF2w-x0KsJ0SySnLIiSqybsVQJQAO4saE
+
+### Test Filtering: Get jog entries only for April 2026
+GET http://localhost:3000/jog_entries?from=2026-04-01&to=2026-04-30
+Content-Type: application/json
+# Pune token-ul tău principal aici
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwM2I0NTFiNC0wNTE0LTRjZGQtYjA3OC00MDY5YTk5MDY2OWUiLCJzdWIiOiI1Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3NDU3MjU1LCJleHAiOjE3Nzc1NDM2NTV9.DypoMQKuK2_wYB-IAP4mURxRQirCKGYCrguCJlvCOz8EN_UL_AICI
+
+### Test Weekly Report
+GET http://localhost:3000/jog_entries/report
+Content-Type: application/json
+# Pune token-ul tău principal aici
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwM2I0NTFiNC0wNTE0LTRjZGQtYjA3OC00MDY5YTk5MDY2OWUiLCJzdWIiOiI1Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3NDU3MjU1LCJleHAiOjE3Nzc1NDM2NTV9.DypoMQKuK2_wYB-IAP4mURxRQirCKGYCrguCJlvCOz8N_UL_AICI
+
+### Create Jog 1 (Mid April - Week A)
+POST http://localhost:3000/jog_entries
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwM2I0NTFiNC0wNTE0LTRjZGQtYjA3OC00MDY5YTk5MDY2OWUiLCJzdWIiOiI1Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3NDU3MjU1LCJleHAiOjE3Nzc1NDM2NTV9.DypoMQKuK2_wYB-IAP4mURxRQirCKGYCrguCJlvCOz8EN_UL_AICI
+
+{
+  "jog_entry": {
+    "date": "2026-04-10",
+    "distance": 5.0,
+    "time": 30
+  }
+}
+
+### Create Jog 2 (Mid April - Week A)
+POST http://localhost:3000/jog_entries
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwM2I0NTFiNC0wNTE0LTRjZGQtYjA3OC00MDY5YTk5MDY2OWUiLCJzdWIiOiI1Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3NDU3MjU1LCJleHAiOjE3Nzc1NDM2NTV9.DypoMQKuK2_wYB-IAP4mURxRQirCKGYCrguCJlvCOz8EN_UL_AICI
+
+{
+  "jog_entry": {
+    "date": "2026-04-12",
+    "distance": 7.0,
+    "time": 40
+  }
+}
+
+### Create Jog 3 (Late April - Week B)
+POST http://localhost:3000/jog_entries
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwM2I0NTFiNC0wNTE0LTRjZGQtYjA3OC00MDY5YTk5MDY2OWUiLCJzdWIiOiI1Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNzc3NDU3MjU1LCJleHAiOjE3Nzc1NDM2NTV9.DypoMQKuK2_wYB-IAP4mURxRQirCKGYCrguCJlvCOz8EN_UL_AICI
+
+{
+  "jog_entry": {
+    "date": "2026-04-20",
+    "distance": 10.0,
+    "time": 55
+  }
+}
