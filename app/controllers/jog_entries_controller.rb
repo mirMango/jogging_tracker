@@ -16,6 +16,16 @@ class JogEntriesController < ApplicationController
     end
   end
 
+  def destroy
+    @jog_entry = JogEntry.find(params[:id])
+
+    # Check if the current user is allowed to delete this specific record
+    authorize @jog_entry
+
+    @jog_entry.destroy
+    head :no_content
+  end
+
   private
 
   def jog_entry_params
