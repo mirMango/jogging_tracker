@@ -19,5 +19,14 @@ Rails.application.routes.draw do
     end
   end
 
+  # REST API endpoints for user management
+  resources :users, only: [ :index, :show, :update, :destroy ]
+
+  resources :jog_entries do
+    collection do
+      get :report
+    end
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 end
